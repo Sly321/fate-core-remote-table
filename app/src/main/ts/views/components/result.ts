@@ -23,7 +23,7 @@ export function result(context: wecco.AppContext<Message>, result?: Result): wec
 }
 
 function resultView(result: Result): wecco.ElementUpdate {
-    const total = result.total < -2 ? -2 : (result.total > 8 ? 8 : result.total)
+    const total = Math.min(Math.max(-2, result.total), 8)
 
     return wecco.html`
         <div class="flex flex-row items-center justify-center text-blue-700">
